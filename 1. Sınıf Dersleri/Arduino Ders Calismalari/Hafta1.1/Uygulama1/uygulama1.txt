@@ -1,0 +1,13 @@
+//setup çalışmak için gerekli olan şeylerin tanımlandığı kısımdır.
+void setup()
+{
+  pinMode(7,OUTPUT); // Burada pinMode ile çıkış yapılan yeri tanımladık 
+}
+//yapılması istenen görevlerin yazıldığı kısımdır.
+void loop()
+{
+  digitalWrite(7,HIGH); // Burada HIGH ile lambayı yaktık
+  delay(500); // Delay yardımıyla programın bir süre duraklatılmasını sağladık.(500 milisaniye)
+  digitalWrite(7,LOW); // Burada LOW ile lambayı söndürdük
+  delay(500);
+}

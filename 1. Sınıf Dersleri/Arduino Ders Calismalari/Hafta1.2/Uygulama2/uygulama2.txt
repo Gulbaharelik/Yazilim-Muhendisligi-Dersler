@@ -1,0 +1,22 @@
+// Burada define yardımı ile tanımlama yaptık .
+#define Buton 6
+#define Led 7
+
+
+void setup() {
+
+pinMode(Buton, INPUT); // Buton için giriş yazdırdık. (Yani burada butondan sinyal göndericez)
+pinMode(Led, OUTPUT); // Led için çıkış yazdırdık. (Burada butondan gelen sinyal sayesinde ledden ışık olarak çıkış yapılacak)
+
+
+}
+
+void loop() {
+
+//if else burada ledin yanması için gereken koşul için kullanılmış
+if(digitalRead(Buton)==1) // Burada buton eğer 1 olursa yani buton çalışırsa led yanar 
+digitalWrite(Led,HIGH); 
+else // Buton 0 olursa yani buton çalıştırılmazsa led söner
+digitalWrite(Led,LOW); 
+
+}

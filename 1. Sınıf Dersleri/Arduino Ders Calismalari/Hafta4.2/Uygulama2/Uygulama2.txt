@@ -1,0 +1,57 @@
+// RGB GECE LAMBASI
+int kirmizi=9;
+int yesil=11;
+int mavi=10;
+
+void setup()
+{
+  pinMode(kirmizi,OUTPUT);
+  pinMode(mavi,OUTPUT);
+  pinMode(yesil,OUTPUT);
+  pinMode(A0,INPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int light=analogRead(A1);
+  Serial.println(light);
+  if(light>150){ // Karanlıksa işlem yapılır.
+
+    // Sarı rengin tonları
+    if(light<300){
+      
+      for(int i=0;i<=255;i+=15){
+        analogWrite(kirmizi,255); 
+        analogWrite(yesil,255);
+        analogWrite(mavi,i);
+        delay(120);
+      }
+    }
+    // Magenta renginin tonları
+    else if((light>=300) && (light<800)){
+        
+      for(int i=0;i<=255;i+=15){
+        analogWrite(kirmizi,i); 
+        analogWrite(yesil,255);
+        analogWrite(mavi,255);
+        delay(120);
+      }
+    }
+    // Mor rengin tonları
+    else {
+      
+      for(int i=0;i<=255;i+=15){
+        analogWrite(kirmizi,255); 
+        analogWrite(yesil,i);
+        analogWrite(mavi,255);
+        delay(120);
+       }
+     }
+   }
+  else {
+       analogWrite(kirmizi,0); 
+       analogWrite(yesil,0);
+       analogWrite(mavi,0);
+   }
+ }

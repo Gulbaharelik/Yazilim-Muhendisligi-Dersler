@@ -1,0 +1,41 @@
+// Trafik lambası
+#include<string.h> // Burada string olarak tanımlanmasının nedeni karaketer dizisi içeren ögerlerin bulunmasıdır.
+
+void setup()
+{
+
+// Burada pinMode yardımıyla ledlerin hangi notlaradan çıkış yapacağını belirledik
+  pinMode(7,OUTPUT); 
+  pinMode(6,OUTPUT);
+  pinMode(5,OUTPUT);
+  Serial.begin(9600); // Burada Serial.begin kullanmamızın nedeni seri iletişimi başlatmak istememizdir. İçerisine yazılan sayı ise saniye başına gönderilen ve alına bit sayısını gösterir.
+
+}
+void loop()
+{
+// if koşulu burada yazdıracağımız yani çıktı alacağımız dur-geç-hazırlan komutlarını yaptırmak için vardır.
+  if(Serial.available()) // Serial.available fonksiyonu burada seri porttan okuma yapmak için kullanılır.
+  {
+  String durum=Serial.readString(); // okunan durumu seri porta yazdırma işlemi yapılır.
+  durum.trim(); // Burada kulllanılan trim terimi aralarda fazla karakter kullanıldı ise onları silmeye yarar.
+
+// Dur komutu gönderildiğinde durun hangi koşullara bağlı olduğu burada gösterilir.
+   if(durum=="dur"){ 
+      digitalWrite(7,HIGH);
+      digitalWrite(6,LOW);
+      digitalWrite(5,LOW);
+    }
+// Hazırlan komutu gönderildiğinde hazırlanın hangi koşullara bağlı olduğunu gösterir.
+    else if(durum=="hazirlan"){
+      digitalWrite(7,LOW);
+      digitalWrite(6,HIGH);
+      digitalWrite(5,LOW);
+    }
+// Geç komutu gönderildiğinde geçin hangi komutlara bağlı olduğunu gösterir.
+    else if(durum=="gec"){
+      digitalWrite(7,LOW);
+      digitalWrite(6,LOW);
+      digitalWrite(5,HIGH);
+    }
+  }
+}

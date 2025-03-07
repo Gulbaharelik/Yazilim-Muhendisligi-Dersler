@@ -1,0 +1,32 @@
+// Kara şimşek
+
+int led[] {5,4,3,2}; // Burada integer yardımı ile ledlerin devrede hangi noktaya bağlı olduğunu dizi olarak belirttik.
+void setup () {
+
+// For döngüsü yardımı ile çıkış yerlerini belirlemesini sağladık.
+for(int i=0; i<4,i++)
+{
+   pinMode (led [i] ,OUTPUT); // pinMode ile çıkış yerlerini yazdırdık.
+}
+}
+
+void loop() {
+
+// For döngüsü yardımı ile ledlerin yanış ve sönüşünü belirledik. (baştan olacak biçimde)
+for (int i=0; i<4;i++)
+{
+   digitalWrite(led [i], HIGH); // Burada döngü dönerken baştan başlayarak lambaları yandırdık.
+     delay(120); // Delay burada beklenen süre için yazılmıştır.
+   digitalWrrite(led [i], LOW); // Burada döngü dönerken baştan başlayarak lambaları söndürdük
+     delaY(120);
+}
+
+// Burada for fonksiyonu ile yukarıdaki gibi lambaların yanış ve sönüşünü belirledik.(sondan olacak biçimde)
+for(int i=3; i>-1 ;i--)
+{
+   digitalWrite(led [i], HIGH);
+    delay(120);
+   digitalWrite(led [i], LOW);
+     delay(120);
+}
+}

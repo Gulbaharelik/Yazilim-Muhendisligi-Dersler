@@ -1,0 +1,22 @@
+//Burada led tanımlamalarını yaptık
+int kirmizi=6;
+int yesil=3;
+int i=9; // Burada i=mavi olarak tanımlıdır.
+void setup()
+{
+//Burada pinMode yardımıyla çıkış pinlerini tanımladık
+  pinMode(kirmizi,OUTPUT);
+  pinMode(yesil,OUTPUT);
+  pinMode(i,OUTPUT);
+}
+
+void loop()
+{
+//For döngüsü yardımıyla mavi ledin yanması için açılmıştır.
+ for(i=0;i<=255;i+=15){
+   analogWrite(3,255); // Burada RGB ters çalıştığı için 0 yerine en yüksek olarak tanımladık.
+  analogWrite(9,i); //Burada yanmasını istediğimiz ledi döngüye girmesi için i olarak tanımladım. 
+  analogWrite(6,255); // Burada RGB ters çalıştığı için 0 yerine en yüksek olarak tanımladık.
+  delay(1000); //Delay yardımıyla beklema süresi verdik (1 saniye)
+ }
+}

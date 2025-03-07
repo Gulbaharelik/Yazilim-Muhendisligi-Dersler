@@ -1,0 +1,17 @@
+// Led parlaklığı (potansiyometre deneyi)
+
+void setup()
+{
+
+pinMode (5, OUTPUT); // Burada kullanılan 5 değeri lambanın hangi noktadan çıkış yapacağını gösteriyor. ( buradaki önemli nokta seçilen çıkış noktasının da nalog olması)
+pinMode (A0, INPUT); // Burada kullanılan A0 değeri ise potansiyometreye bağlı ve analog girişe bağlanmış durumda .
+
+}
+
+void loop() 
+{
+//Burada analogRead ile okunan degeri 4'e bölmemizin nedeni 0-1024 arası degerler alabilmesine karşın analogWrite'ın 0-255 arası degerler alması
+int parlaklik = analogRead(A0)/4; // Parlaklık olarak belirlenen değeri analogRead yardımı ile A0 yardımıyla giriş yaptırıyoruz .(yani okutuyoruz)
+analogWrite (5,parlaklik); // Burada analogWrite yardımıyla parlaklık değerini okutuyoruz.
+
+}

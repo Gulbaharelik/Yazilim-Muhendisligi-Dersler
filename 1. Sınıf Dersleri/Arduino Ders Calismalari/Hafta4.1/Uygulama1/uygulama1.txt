@@ -1,0 +1,25 @@
+/*
+       Fotorezistör(LDR)
+*Üzerine ışık düştüğünde direnç değeri değişir.
+*Üzerine düşen ışık miktarı fazla ise direnci azalır.
+*Üzerine düşen ışık miktası az ise direnci artar.
+*Devreye bağlarken direnç kullanılır .
+ Bunun nedeni ise değişen direnç değerlerini daha hassas gözlemleyebilmektir. 
+*/
+
+void setup()
+{
+ pinMode(10,OUTPUT); //Led için pin tanımlamsı
+ pinMode(A3,INPUT); // Fotorezistör pini tanımlaması
+ Serial.begin(9600); //Serial.begin burada seri iletişimi başlatmak için kullanılır.
+}
+
+void loop()
+{
+  int light=analogRead(A3); //Fotorezistöreden gelen değeria aldık.
+  Serial.println(light); //Eşik değer için yazdırdık.(ışığın durumuna göre)
+  if(light>133){ //Koşukl ifaddesi yazdırdık. 
+    digitalWrite(10,HIGH); //Okunan değer eşik değerden büyükse ledi yak
+  }else
+    digitalWrite(10,LOW); // Okunan değer eşik değerden küçükse ledi söndür.
+}
